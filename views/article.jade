@@ -1,0 +1,36 @@
+extends layoutB
+block content
+    div(ng-app='article', ng-controller='articleController').panel.panel-default
+        div.panel-body
+          h2 {{article.title}}
+          hr
+          p.articleContent(ng-if="article.encrypted != true") {{article.content}}
+          div(ng-if="article.encrypted == true").
+            <div id="locked">
+              <p style="text-align:center;"><span class="glyphicon glyphicon-lock"></span> This article is encrypted and requires a password to to view.</p>
+                <div class="input-group" style="width:50%;margin:0 auto;">
+                  <input type="text" id="hashloc" class="itm-round form-control" placeholder="Enter password to view this article">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default itm-round" id="hashviewer" width="20" type="button">Decrypt</button>
+                  </span>
+                </div>
+            </div>
+        div(ng-if="article.category != null").panel-footer
+          | Category: {{article.category}}
+        div(ng-if="article.tag != null").panel-footer
+          | Tag: {{article.tag}}
+        div(ng-if="article.date != null").panel-footer
+          {{article.date|date:'medium'}}
+          span.pull-right.text-muted #[.glyphicon.glyphicon-link] {{article.key}}
+    div.encrypted(style='display:none;')
+        {{article.title}}
+    script.
+        $(document).ready(function() {
+            $("#hashviewer").click(function() {
+                if($("#hashloc").val().length !== 0) {
+                    var bf = new Blowfish($("#hashloc").val());
+                    var newcontent = bf.decrypt($('.encrypted').html());
+                    $('.locked').html(newcontent);
+                }
+            });
+        });

@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    link(rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300")
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/layoutBstyle.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='javascripts/jquery.min.js')
+    script(src='javascripts/angular.min.js')
+    script(src='javascripts/feed.js')
+    script(src='javascripts/article.js')
+    script(src='javascripts/site.js')
+    script(src='javascripts/bootstrap.min.js')
+    script(src='javascripts/blowfish.js')
+  body
+    .row.navigation
+      a.col-lg-1.col-lg-offset-1.col-md-1.col-md-offset-1.col-sm-12.col-xs-12(href='/')
+        h1#headerTitle <center><img src="images/logo.png" class="img img-responsive" style="width:200px;"></center>
+      .col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2.col-sm-12.col-xs-12.butts
+        .row
+          a.navigationBar.col-lg-2.col-md-2.col-sm-2.col-sm-offset-1.hidden-xs(href='/feed') <div class="btn btn-round"> <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Explore News</div>
+          a.navigationBar.col-lg-2.col-md-2.col-sm-2.hidden-xs(href='/editor') <div class="btn btn-round"> <span class="glyphicon glyphicon-cloud" aria-hidden="true"></span> Post</div>
+          a.navigationBar.col-lg-2.col-md-2.col-sm-2.hidden-xs(href='/product') <div class="btn btn-round"> <span class="glyphicon glyphicon-education" aria-hidden="true"></span> Learn More</div>
+          a.navigationBar.col-lg-2.col-md-2.col-sm-2.hidden-xs(href='/setup') <div class="btn btn-round"> <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Participate</div>
+          a.navigationBar.col-lg-2.col-md-2.col-sm-2.hidden-xs(href='/about') <div class="btn btn-round"> <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> About Us</div>
+          .col-lg-2.col-md-2.col-sm-1.hidden-xs
+        .row.hidden-lg.hidden-md.hidden-sm.visible-xs
+          a.navigationBlade.col-xs-12(href='/feed') <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Explore News
+          a.navigationBlade.col-xs-12(href='/editor') <span class="glyphicon glyphicon-cloud" aria-hidden="true"></span> Upload
+          a.navigationBlade.col-xs-12(href='/product') <span class="glyphicon glyphicon-education" aria-hidden="true"></span> Learn More
+          a.navigationBlade.col-xs-12(href='/setup') <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Participate
+          a.navigationBlade.col-xs-12(href='/about') <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> About Us
+      #content-wrapper.row
+        .sidebar
+        #content.col-xs-12.col-sm-10.col-md-8.col-lg-8.col-xs-offset-0.col-sm-offset-1.col-md-offset-2.col-lg-offset-2
+          block content
+     #footy

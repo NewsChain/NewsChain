@@ -1,0 +1,71 @@
+extends layoutB
+
+block content
+  h1#formTitle Post An Article
+  
+  #articleSpin(style="display:none;width:100%;text-align:center;").
+    <h1><span class="glyphicon glyphicon-refresh"></h1>
+  form#articleForm
+    .form-group
+      label Title <small style="color:#FFB981;">(Optional)</small>
+      input.editor.form-control#Title(type="text" placeholder='Title' maxlength = "40")
+    .form-group
+      label Content
+      textarea.form-control#Content(type="textarea" rows="20" placeholder='Content goes here')
+    .form-group
+      label Category <small style="color:#FFB981;">(Optional)</small>
+      input.editor.form-control#Category(type="text" placeholder='Category' maxlength = "40")
+    .form-group
+      label Tag <small style="color:#FFB981;">(Optional)</small>
+      input.editor.form-control#Tag(type="text" placeholder='Tag' maxlength = "40")
+    .form-group
+      label Password <small style="color:#FFB981;">(Optional)</small>
+      input.editor.form-control#Password(type="password" placeholder='Protect your content with a password' maxlength = "40")
+    <button type="button" id="submit" name="submit" class="submit btn btn-primary btn-lg" disabled>Submit <span class="glyphicon glyphicon-send" aria-hidden="true"></span></button>
+    script.
+      $(document).ready(function() {
+        $("#submit").click(function() {
+          $("#articleForm").hide();
+          $("#articleSpin").show();
+          var locked = !($("#Password").val().length === 0);
+          var date = (new Date).getTime();
+          var content = "";
+          if(locked == true) {
+            var pre = $("#Content").val();
+            var bf = new Blowfish($("#Password").val());
+            content = bf.encrypt(pre);
+          } else {
+            content = $("#Content").val();
+          }
+          $.post({
+            url: '/api/add',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'text',
+            data: JSON.stringify({
+              title: $("#Title").val(),
+              date: date,
+              tag: $("#Tag").val(),
+              category: $("#Category").val(),
+              content: content,
+              encrypted: locked
+            }),
+            success: function(hash) {
+              window.location = "/article?h=" + hash
+            }
+          })
+        });
+
+        if($("#Content").val().length === 0) {
+          $("#submit").prop('disabled', true);
+        } else {
+          $("#submit").prop('disabled', false);
+        }
+
+        $("#Content").on("change keyup paste", function() {
+          if($("#Content").val().length === 0) {
+            $("#submit").prop('disabled', true);
+          } else {
+            $("#submit").prop('disabled', false);
+          }
+        });
+      });

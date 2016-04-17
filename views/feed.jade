@@ -1,0 +1,19 @@
+extends layoutB
+
+block content
+  h1 News Feed
+  div(ng-app='feed')
+    div(ng-controller='feedController')
+      div(ng-repeat='article in articles' ng-click='loadArticle({{article.key}})').panel.panel-default
+        a(ng-href='/article?h={{article.key}}')
+          div.panel-body
+            h2 {{article.title}}
+            hr
+            div(ng-if='article.encrypted')
+              p.text-muted #[i.glyphicon.glyphicon-lock] This article is encrypted. Click to enter password and decrypt.
+            div(ng-if='!article.encrypted')
+              p.articleContent {{article.content}}
+          div(ng-if="article.date != null").panel-footer
+            {{article.date|date:'medium'}}
+            span.pull-right.text-muted #[.glyphicon.glyphicon-link] {{article.key}}
+      button(ng-click='loadMore()').btn.btn-default Load More

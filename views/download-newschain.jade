@@ -1,0 +1,16 @@
+extends layoutB
+block content
+  div.download-instructions
+    h1  Host Your Own NewsChain Node
+    p   The NewsChain will survive as long as one node exists to store the data and synchronize new nodes. Hosting your own node will expand the NewsChain network reliability and availability. Setting it up is easy!
+    ol
+        li Install #[a(href='https://nodejs.org/') Node.js] and #[a(href='https://git-scm.com/') Git] on your server.
+        li Clone the #[a(href='https://github.com/imperialsoup/newschain') NewsChain node] repository with the following commands:
+            pre
+                | git clone https://github.com/imperialsoup/newschain.git
+                | cd newschain
+                | npm install
+        li Start the node with the command:
+            pre
+                | npm start
+        li That's it! Your node will automatically attempt to connect to other nodes and synchronize all available articles. You can access the web ui for the node at http://localhost:3000.

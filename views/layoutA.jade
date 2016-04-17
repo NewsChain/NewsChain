@@ -1,0 +1,134 @@
+doctype html
+html
+    head
+        link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Lato:300')
+        link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/layoutAstyle.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        script(src='javascripts/jquery.min.js')
+        script(src='javascripts/main.js')
+        script(src='javascripts/jquery.scrollify.js')
+        script(src='javascripts/bootstrap.min.js')
+    body.
+        <section class="panel home" data-section-name="home">
+            <div class="main">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-0">
+                        <img src="images/logo.png" class="img-responsive">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+                        <h4>
+                            A distributed information platform, focused on delivering immutability, and scalability to the masses.
+                        </h4>
+                        <br />
+                        <div class="input-group" style="width:30%;margin:0 auto;">
+                            <input type="text" id="hashloc" class="btn-round form-control" placeholder="Enter hash to view article">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default btn-round" id="hashviewer" width="20" type="button">Go!</button>
+                            </span>
+                        </div>
+                        <a href="/feed" class="btn btn-default btn-round btn-lg btn-cta">Explore News</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       <a href="/editor" class="btn btn-default btn-round btn-lg btn-cta">Post Your Own</a>
+                    </div>
+                </div>
+                <div class="clicker clicker-bottom" onclick="javascript:$.scrollify.next();">
+                    <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                </div>
+            </div>
+        </section>
+        <section class="panel product" data-section-name="product">
+            <div class="inner col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12 col-xs-offset-0">
+                <h1>About NewsChain</h1>
+                <p>
+                    The newschain platform empowers people through the properties of the merkle tree data structure and a distributed hash table to create a tamper-resistant archive of uploaded articles. We aim to harden information availability and integrity through crowdsourced volunteer nodes - the larger the number of participants the more difficult the archive becomes to eradicate. We also released the API that powers our platform with the MIT open-source license to democratize the improvement and extension of our technology.
+                </p>
+            </div>
+        </section>
+        <section class="panel participate" data-section-name="participate">
+            <div class="inner col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12 col-xs-offset-0">
+                <h1>Use NewsChain</h1>
+                <div class="row">
+                    <div class="clip col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        Browse the accomplishments currently archived. Elevate your understanding to a higher level.<br />
+                        <a href="/feed" class="btn btn-default btn-round btn-cta">Explore News</a>
+                    </div>
+                    <div class="clip col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        Send your cultural heritage through the generations. Leave your mark in history. <br />
+                        <a href="/editor" class="btn btn-default btn-round btn-cta">Start Archiving</a>
+                    </div>
+                    <div class="clip col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        Help to protect our knowledge! Ensure that our descendants inherit our wisdom by hosting your own NewsChain node.<br />
+                        <a href="/setup" class="btn btn-default btn-round btn-cta">Participate</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="panel about" data-section-name="about">
+            <div class="clicker clicker-top" onclick="javascript:$.scrollify.move('#home');">
+                <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+            </div>
+            <div class="inner col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12 col-xs-offset-0">
+                <h1>About Our Team</h1>
+                <p>
+                    We are a team of alumni software engineering majors from the University of Texas at Dallas with a passion for cutting-edge technology and humanitarian pursuits. This project was inspired by the main technological innovation of bitcoin: a distributed ledger called the blockchain. We wanted to apply our skills and comprehension of the technology towards a product that has the potential to make the world a better place.
+
+                </p>
+            </div>
+            <div class="row">
+                <div class="clip col-lg-2 col-md-2 col-sm-2 col-xs-6 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-0">
+                    <img class="img-responsive img-circle img-head" src="images/ra-headshot.jpg"><br />
+                    <center>
+                        <h4>Rahat Ahmed</h4>
+                        Former Full-stack developer at Form.io<br />
+                        <a href="http://rahatarmanahmed.com" target="_blank">Contact Me</a>
+                    </center>
+                </div>
+                <div class="clip col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                    <img class="img-responsive img-circle img-head" src="images/jd-headshot.jpg"><br />
+                    <center>
+                        <h4>Jonathan Darling</h4>
+                        Front-end developer at DCS Information systems<br />
+                        <a href="https://jmdarling.com" target="_blank">Contact Me</a>
+                    </center>
+                </div>
+                <div class="clip col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                    <img class="img-responsive img-circle img-head" src="images/tg-headshot.jpg"><br />
+                    <center>
+                        <h4>Tim Gowan</h4>
+                        Consultant for Hewlett Packard Enterprise<br />
+                        <a href="https://www.linkedin.com/in/tim-gowan-043071b3" target="_blank">Contact Me</a>
+                    </center>
+                </div>
+                <div class="clip col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                    <img class="img-responsive img-circle img-head" src="images/holmes.jpg"><br />
+                    <center>
+                        <h4>Jonathan Holmes</h4>
+                        Brag about your job/education<br />
+                        <a href="http://www.facebook.com/crait" target="_blank">Contact Me</a>
+                    </center>
+                </div>
+                <div class="clip col-lg-2 col-md-2 col-sm-2 col-xs-6 col-lg-offset-0 col-md-offset-0 col-sm-offset-0 col-xs-offset-3">
+                    <img class="img-responsive img-circle img-head" src="images/marie.jpg"><br />
+                    <center>
+                        <h4>Marie Imperial</h4>
+                        Software Developer Intern at CodeAuthority<br />
+                        <a href="https://www.linkedin.com/in/marie-imperial-539b1787" target="_blank">Contact Me</a>
+                    </center>
+                </div>
+            </div>
+            <center>
+                <a href="/about" class="btn btn-default btn-round btn-lg btn-cta btn-cta-alt">More About Us</a>
+            </center>
+        </section>
+        <script>
+        $(document).ready(function() {
+            $("#hasviewer").click(function() {
+                if($("#hashloc").val().length !== 0) {
+                    window.location = "/article?h=" + $("#hashloc").text();
+                }
+            });
+        });
+        </script>
